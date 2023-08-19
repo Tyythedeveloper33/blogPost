@@ -1,7 +1,7 @@
 const Comments = require('./comments');
 const BlogPost = require('./blogPost');
 const User = require('./users');
-const User = require('./articles');
+
 const Articles = require('./articles');
 
 Comments.belongsTo(User, {
