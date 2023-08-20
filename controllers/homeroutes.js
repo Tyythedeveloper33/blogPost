@@ -13,6 +13,11 @@ router.get('/Login',(req,res) =>{
 
 
     })
+router.get('/Dashboard',(req,res) =>{
+    res.render('Dashboard');
+
+
+    })
     
 
     module.exports = router;
