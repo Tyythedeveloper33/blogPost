@@ -43,12 +43,10 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
 
 
-const routes = require('./controllers');
-app.use(routes);
+//  const routes = require('./controllers');
+// app.use(routes);
 
-app.get('/',(res,req) =>{
-res.render('index');
-})
+
 
 
 sequelize.sync({ force: false }).then(() => {
