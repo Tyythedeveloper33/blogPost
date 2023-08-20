@@ -5,10 +5,10 @@ const app = express();
 
 const session = require('express-session');
 const exphbs = require('express-handlebars');
-const routes = require('./controllers');
-const helpers = require('./utils/helpers');
 
-const sequelize = require('./config/connection');
+const helpers = require('./utils/auth');
+
+const sequelize = require('./config/configuration');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 
 
@@ -43,7 +43,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
 
 
-
+const routes = require('./controllers');
 app.use(routes);
 
 app.get('/',(res,req) =>{
