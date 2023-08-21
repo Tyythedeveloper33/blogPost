@@ -7,4 +7,4 @@ CREATE TABLE users(
 id INT AUTO_INCREMENT ,
 username VARCHAR(25) NOT NULL,
 password VARCHAR(25) NOT NULL
-);
+); 
