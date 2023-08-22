@@ -1,9 +1,12 @@
-const router = require("../homeroutes");
+
+const router= require('express').Router();
+
 
 
 
 router.get('/',(req,res) =>{
-    res.render('login');
+res.render('login');
+    
 
 })
 
@@ -23,3 +26,5 @@ router.post('/', async (req, res) => {
     }
   });
 
+
+  module.exports = router;
