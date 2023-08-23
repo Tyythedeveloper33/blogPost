@@ -45,6 +45,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 
 const routes = require('./controllers');
+
  app.use(routes);
 
 
