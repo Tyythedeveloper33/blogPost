@@ -1,5 +1,6 @@
 // Collect values from the login form
-const withAuth = require('../utils/auth');
+// const withAuth = require('../utils/auth');
+// const User = require('../../models/users');
 
 const signupSubmit = document.querySelector('#Su-Submit')
 
@@ -45,7 +46,14 @@ if (name && password) {
      
        });
       if (response.ok) {
-        console.log(body)
+        const userData = await User.create(req.body)
+        req.session.save(() => {
+          req.session.user_id = userData.id;
+          req.session.logged_in = true;
+    
+          res.status(200).json(userData);
+        });
+        
         // If successful, redirect the browser to the profile page
        return view('/Dashboard');
      
@@ -57,8 +65,20 @@ if (name && password) {
 
  }
 
+//  router.post('/', async (req, res) => {
+//   try {
+//     const userData = await User.create(req.body);
 
+//     req.session.save(() => {
+//       req.session.user_id = userData.id;
+//       req.session.logged_in = true;
+
+//       res.status(200).json(userData);
+//     });
+//   } catch (err) {
+//     res.status(400).json(err);
+//   }
+// });
 //  loginSubmit.addEventListener('submit',loginFormHandler);
 
  signupSubmit.addEventListener('submit',signupFormHandler);
-module.exports = email;
