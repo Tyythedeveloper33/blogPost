@@ -5,9 +5,8 @@ USE crowdfund_db;
 
 
 CREATE TABLE user(
-id INT PRIMARY KEY ,
+id INT AUTO_INCREMENT PRIMARY KEY ,
 name VARCHAR(25) ,
 password VARCHAR(255) 
 ); 
-
 

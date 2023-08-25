@@ -21,7 +21,7 @@ router.post('/',async (req, res) => {
        const hashedPassword =  await bcrypt.hash(req.body.password, 10);
         console.log("Hash: ", hashedPassword)
     
-        User.create({
+       const tempUser = await User.create({
             
             name: req.body.name,
             password: hashedPassword,
@@ -31,7 +31,7 @@ router.post('/',async (req, res) => {
       
         //const newUser = await User.create(req.body);
         //  const newUser = await User.create(tempUser);
-        //  console.log('temp user ;', tempUser)
+          console.log('temp user ;', tempUser)
 
         res.redirect('/api/login');
     } catch{

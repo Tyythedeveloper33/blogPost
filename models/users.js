@@ -9,15 +9,15 @@ User.init(
       type: DataTypes.INTEGER,
       allowNull: false,
       primaryKey: true,
-      autoIncrement: true,
-      defaultValue:5,
+      autoIncrement: true, 
+  
     },
     name: {
       type: DataTypes.STRING,
       allowNull: false,
     },
     password: {
-      type: DataTypes.TEXT,
+      type: DataTypes.STRING,
       allowNull: false,
     },
     user_id: {
