@@ -22,7 +22,7 @@ router.post('/',async (req, res) => {
         console.log("Hash: ", hashedPassword)
     
         User.create({
- 
+            
             name: req.body.name,
             password: hashedPassword,
            
@@ -30,8 +30,8 @@ router.post('/',async (req, res) => {
         
       
         //const newUser = await User.create(req.body);
-         const newUser = await User.create(tempUser);
-         console.log('temp user ;', tempUser)
+        //  const newUser = await User.create(tempUser);
+        //  console.log('temp user ;', tempUser)
 
         res.redirect('/api/login');
     } catch{

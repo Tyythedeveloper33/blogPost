@@ -4,7 +4,7 @@ CREATE DATABASE crowdfund_db;
 USE crowdfund_db;
 
 
-CREATE TABLE users(
+CREATE TABLE user(
 id INT PRIMARY KEY ,
 name VARCHAR(25) ,
 password VARCHAR(255) 

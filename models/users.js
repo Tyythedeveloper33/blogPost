@@ -10,6 +10,7 @@ User.init(
       allowNull: false,
       primaryKey: true,
       autoIncrement: true,
+      defaultValue:5,
     },
     name: {
       type: DataTypes.STRING,
@@ -18,11 +19,6 @@ User.init(
     password: {
       type: DataTypes.TEXT,
       allowNull: false,
-    },
-    date_created: {
-      type: DataTypes.DATE,
-      allowNull: false,
-      defaultValue: DataTypes.NOW,
     },
     user_id: {
       type: DataTypes.INTEGER,
