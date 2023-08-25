@@ -9,7 +9,12 @@ const withAuth = require('../utils/auth');
 
   })
 
+/*
+  router.post('/signup', (req, res) => {
+    console.log("Data: ", req.body);
+  })
 
+*/
     
 
     
