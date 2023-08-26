@@ -8,13 +8,13 @@ const withAuth = require('../utils/auth');
 
 
   })
+//  router.get('/dashboard',(req,res) =>{
+//   res.render('Dashboard');
 
-/*
-  router.post('/signup', (req, res) => {
-    console.log("Data: ", req.body);
-  })
 
-*/
+//   })
+
+
     
 
     
