@@ -2,7 +2,7 @@ const router= require('express').Router();
 const bcrypt= require('bcrypt');
 const { hasHook } = require('../../models/comments');
 // express.use(router.urlencoded({extended: false}))
- const {User} = require('../../models')
+ const { User } = require('../../models')
  
 
 // All of these routes are prefixed with '/api/signup'
@@ -48,8 +48,10 @@ async function signupHandler(req, res) {
         const tempUser = await User.create({
             name: req.body.name,
             password: hashedPassword,
+           
             //says user_id value is undefined in integerated terminal
-            user_id: userIn.id,
+
+        //     user_id:('?'),
         });
 
         console.log('temp user:', tempUser);
@@ -66,7 +68,7 @@ async function loginFormHandler(req, res) {
     try {
         const user = await User.findOne({ where: { name: req.body.name } });
         
-        if (user && await bcrypt.compare(req.body.password, user.password)) {
+        if (user && await bcrypt.compare(req.body.password, User.password)) {
             res.redirect('../../index');
         } else {
             res.redirect('../../signup');
