@@ -7,7 +7,8 @@ const signupRoutes = require('./signup')
 
 
 
-router.use('/', homeRoutes);
+router.use('/', signupRoutes);
+router.use('/homeRoutes', homeRoutes);
 router.use('/api', apiRoutes);
 router.use('/login', loginRoutes);
 router.use('/signup', signupRoutes);
