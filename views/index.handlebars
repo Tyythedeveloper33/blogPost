@@ -1,16 +1,24 @@
+    <nav>
+    <div class="navbar">
+    <a href="/Dashboard">Dashboard</a>
+    <button class="no-button" id="logout">logout</button>
+    </nav>
 
-<body>
-   <div class="navbar">
-  <a href="/Dashboard">Dashboard</a>
-  <button class="no-button" id="logout">logout</button>
-  <Br></Br>
-  <span class="title">BlogStarzz</span>
- <div class="View-Dashboard">
+    <body>
+        <div class="View-Dashboard">
 
-            <h1>Welcome to Blogstarzz {{name}}!, this is a application for which users can create and connect with other Blogstarzz by posting Blogs, or commenting on other blogs if you have a opinon to share, keeping us connected by being able to reach news within a couple scrolls</h1>
-
+            <h1>Welcome to Blogstarzz {{name}}!</h1>
         </div>
-  
-<script src="/js/logout.js"></script>
- </body>
- 
+        <div class="blogPost">
+            <h2 class="blog-post-title">{{ title }}</h2>
+            <p class="blog-post-meta">
+                Created by {{ author }}
+            </p>
+            <div class="blog-post-content">
+               <h1> {{ content }}</h1>
+               <button  id="makeComment">comment</button>
+            </div>
+        </div>
+
+        <script src="/js/logout.js"></script>
+    </body>

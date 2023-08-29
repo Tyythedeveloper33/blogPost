@@ -11,9 +11,14 @@ const logout = async () => {
       alert(response.statusText);
     }
   };
+
+   function logMessage(){
+    alert("Comments currently disabled for creators post, but you can get started by clicking the Dashboard link!!")
+  }
   
 
 
 
 document.querySelector('#logout').addEventListener('click', logout);
+document.querySelector('#makeComment').addEventListener('click', logMessage);
 

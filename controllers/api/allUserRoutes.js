@@ -71,6 +71,8 @@ async function loginFormHandler(req, res) {
         req.session.save(() => {
             req.session.user_id = user.id;
             req.session.logged_in = true;
+            req.session.name = user.name;
+            
 
              res.redirect('../../homeRoutes');
              console.log({user: user, message: 'You are now logged in'})
