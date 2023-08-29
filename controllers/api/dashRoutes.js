@@ -6,16 +6,16 @@ const {  User , BlogPost} = require('../../models')
  async function postformhandler(req, res) {
   console.log("data received: ", req.body);
   try {
- 
-
+console.log(req.session.user_id)
     const blogPost = await BlogPost.create({
         title: req.body.title,
-        content: req.body.content
-
+        content: req.body.content,
+        user_id: req.session.user_id,
         
     });
-
+    
     console.log('blogpost:', blogPost);
+    res.redirect('../../dashboard');
   }catch (err) {
     console.error("Error:", err);
 }
