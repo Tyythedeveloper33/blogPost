@@ -20,9 +20,7 @@ router.get('/', async (req,res) =>{
     res.render('Dashboard', {
           blogPost,
           style: "dashboard.css",
-          title: blogPost.title,
-          content: blogPost.content,
-          date: blogPost.date_created,
+          
     });
   console.log(blogPost)
     }catch (err) {

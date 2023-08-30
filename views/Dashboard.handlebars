@@ -12,21 +12,23 @@
     
 <body>
     <h2> This is where you can comment on post!!</h2>
+    {{#each blogpost}}
      <div class="forms-container">
         <div class="blogpost-form">
             <link rel="stylesheet" href="css/{{style}}">
             <form action="/api/dashboard/makeBlog" method="post">
-                <label for="title">title:{{title}}   </label>
+                <label for="title">{{title}}  </label>
                   <br><hr>
-                <label for="content">desription: {{content}}</label>
-                  <h2>Created on {{date }}</h2>
+                <label for="content">{{content}}</label>
+                  <h2>Created on {{date_created}} by {{user}}</h2>
                 <hr>
-                <button type="submit">make post</button>
+                <button type="submit" id="Comment">comment</button>
                 
                
             </form>
         </div>
     
 </div>
+{{/each}}
 <script src="./js/blog.js"></script>
 </body>
