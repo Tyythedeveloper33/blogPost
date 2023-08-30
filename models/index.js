@@ -4,7 +4,7 @@ const User = require('./users');
 
 
 
-Comments.belongsTo(User, {
+Comments.hasOne(User, {
   foreignKey: 'user_id',
   onDelete: 'CASCADE'
 });

@@ -17,11 +17,13 @@
         <div class="blogpost-form">
             <link rel="stylesheet" href="css/{{style}}">
             <form action="/api/dashboard/makeBlog" method="post">
-                <label for="title">{{title}}  </label>
+                <label for="title"> title:  {{title}}  </label>
                   <br><hr>
                 <label for="content">{{content}}</label>
                   <h3>Created on {{date_created}} by {{user.name}}</h3>
                 <hr>
+                <input type="comment" id="comment" name="comment" required><br>
+                 <br>
                 <button type="submit" id="Comment">comment</button>
                 
                

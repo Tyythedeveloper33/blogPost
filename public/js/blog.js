@@ -1,6 +1,6 @@
-const makepost = async () => {
+const makecomment = async () => {
     console.log('making post')
-    const response = await fetch('/api/dashRoutes/makeBlog', {
+    const response = await fetch('/api/dashRoutes/comment', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
     });
@@ -12,4 +12,4 @@ const makepost = async () => {
     }
   };
 
-  document.querySelector('#post').addEventListener('click', makepost);
+  document.querySelector('#post').addEventListener('click', makecomment);
