@@ -12,7 +12,7 @@
     
 <body>
     <h2> This is where you can comment on post!!</h2>
-    {{#each blogpost}}
+    {{#each  blogPost}}
      <div class="forms-container">
         <div class="blogpost-form">
             <link rel="stylesheet" href="css/{{style}}">
@@ -20,7 +20,7 @@
                 <label for="title">{{title}}  </label>
                   <br><hr>
                 <label for="content">{{content}}</label>
-                  <h2>Created on {{date_created}} by {{user}}</h2>
+                  <h3>Created on {{date_created}} by {{user.name}}</h3>
                 <hr>
                 <button type="submit" id="Comment">comment</button>
                 
