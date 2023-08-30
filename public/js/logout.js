@@ -32,6 +32,7 @@ const logout = async () => {
 
 
 
+  document.querySelector('#makeComment').addEventListener('click', logMessage);
   document.querySelector('#post').addEventListener('click', makepost);
 document.querySelector('#logout').addEventListener('click', logout);
 document.querySelector('#makeComment').addEventListener('click', logMessage);

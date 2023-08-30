@@ -22,7 +22,7 @@ router.get('/', async (req,res) =>{
           style: "dashboard.css",
           title: blogPost.title,
           content: blogPost.content,
-          date_created: blogPost.date_created,
+          date: blogPost.date_created,
     });
   console.log(blogPost)
     }catch (err) {
