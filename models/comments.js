@@ -13,7 +13,7 @@ Comments.init(
     },
     content: {
       type: DataTypes.TEXT,
-      allowNull:false,
+      allowNull: false,
     },
     date_created: {
       type: DataTypes.DATE,
@@ -24,6 +24,13 @@ Comments.init(
       type: DataTypes.INTEGER,
       references: {
         model: 'user',
+        key: 'id',
+      },
+    },
+    post_id: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: 'blogpost',
         key: 'id',
       },
     },

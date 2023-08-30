@@ -25,17 +25,25 @@ console.log(req.session.user_id)
   console.log("data received: ", req.body);
   try {
     console.log(req.session.user_id)
-    // const blogPost = await BlogPost.findByPk
-    const comment = await Comments.create({
+    const blogPost = await BlogPost.findByPk()
+
+
+     const comment = await Comments.create({
+          ...req.body,
+           user_id: req.session.user_id,
+     });
+     res.json(comment)
+    }catch(err){
+      console.log(err)
+      res.status(500).json(err)
+    //   content: req.body.content,
+    //  
       
-      content: req.body.content,
-      user_id: req.session.user_id,
-      
-  });
+  // });
   // console.log(blogPost)
-  console.log(comment)
-  }catch(err){
-    console.error("Error:", err);
+  // console.log(comment)
+  
+  //   console.error("Error:", err);
   }
  }
 

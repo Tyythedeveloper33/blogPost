@@ -17,6 +17,7 @@
         <div class="blogpost-form">
             <link rel="stylesheet" href="css/{{style}}">
             <form action="/api/dashboard/makeBlog" method="post">
+            <input type="hidden" id="comment" name="id" value="{{id}}">
                 <label for="title"> title:  {{title}}  </label>
                   <br><hr>
                 <label for="content">{{content}}</label>
