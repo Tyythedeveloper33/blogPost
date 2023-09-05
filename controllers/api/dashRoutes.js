@@ -1,7 +1,7 @@
-
 const router= require('express').Router();
 const { Comments, User , BlogPost} = require('../../models')
  const sess =require('../../server')
+
 
  async function postformhandler(req, res) {
   console.log("data received: ", req.body);
@@ -11,9 +11,9 @@ console.log(req.session.user_id)
         title: req.body.title,
         content: req.body.content,
         user_id: req.session.user_id,
-        
+       
     });
-    
+   
     console.log('blogpost:', blogPost);
     res.redirect('../../dashboard');
   }catch (err) {
@@ -21,31 +21,35 @@ console.log(req.session.user_id)
 }
  }
 
+
  async function commenthandler(req, res) {
   console.log("data received: ", req.body);
   try {
     console.log(req.session.user_id)
-    const blogPost = await BlogPost.findByPk()
-
-
-     const comment = await Comments.create({
-          ...req.body,
-           user_id: req.session.user_id,
-     });
+    const blogPost = await BlogPost.findByPk(req.body.id)
+    console.log("Blog Post: ", blogPost);
+   
+    const comment = await Comments.create({
+      // ...req.body,
+      content: req.body.content,
+      user_id: req.session.user_id,
+      post_id: blogPost.dataValues.id,
+      // content: req.session.comment,
+     
+    });
+    console.log("Comment: ", comment);
      res.json(comment)
+     res.render('Dashboard', {
+    comment: req.body.content  
+     
+});
     }catch(err){
       console.log(err)
       res.status(500).json(err)
-    //   content: req.body.content,
-    //  
-      
-  // });
-  // console.log(blogPost)
-  // console.log(comment)
-  
-  //   console.error("Error:", err);
   }
  }
+
+
 
 
 router.post('/comment', commenthandler);
