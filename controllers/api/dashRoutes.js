@@ -33,16 +33,16 @@ console.log(req.session.user_id)
       // ...req.body,
       content: req.body.content,
       user_id: req.session.user_id,
-      post_id: blogPost.dataValues.id,
+      post_id: blogPost.id,
       // content: req.session.comment,
      
     });
     console.log("Comment: ", comment);
      res.json(comment)
-     res.render('Dashboard', {
-    comment: req.body.content  
+//     //  res.render('Dashboard', {
+//     comment: req.body.content  
      
-});
+// });
     }catch(err){
       console.log(err)
       res.status(500).json(err)

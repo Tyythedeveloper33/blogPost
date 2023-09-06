@@ -2,14 +2,14 @@ const makecomment = async () => {
   console.log('making comment')
  
 
-  const comment = document.querySelector('#comment').value.trim();
-
-
+  const content = document.querySelector('#comment-input').value.trim();
+  var postId = document.querySelector('#Comment').dataset.postid;
+   console.log("post id:",postId,document.querySelector('#Comment').dataset )
   const response = await fetch('/api/dashRoutes/comment', {
     method: 'POST',
     body: JSON.stringify({
-      post_id: postId,
-      content: req.body.content
+      id: postId,
+      content: content
            
            
 
@@ -22,8 +22,8 @@ const makecomment = async () => {
      
   if (response.ok) {
     //this is where the problem liesas i am not getting console.logged my data nor message
-    response.json(data)
-    console.log('heyyyyyy')
+    console.log( await response.json())
+    location.replace('/dashboard')
   } else {
     alert(response.statusText);
   }

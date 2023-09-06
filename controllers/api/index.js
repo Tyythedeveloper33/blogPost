@@ -9,6 +9,7 @@ const dashRoutes =require('./dashRoutes')
 // all of these routes are prefixed with '/api'
 
 router.use('/allUserRoutes', allUserRoutes);
-router.use('/dashboard', dashRoutes)
+router.use('/dashRoutes', dashRoutes)
+
 
 module.exports= router;
