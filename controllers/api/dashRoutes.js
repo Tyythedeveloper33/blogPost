@@ -33,7 +33,7 @@ console.log(req.session.user_id)
       // ...req.body,
       content: req.body.content,
       user_id: req.session.user_id,
-      post_id: blogPost.id,
+      blogpost_id: blogPost.id,
       // content: req.session.comment,
      
     });

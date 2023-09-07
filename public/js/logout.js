@@ -1,5 +1,6 @@
 const logout = async () => {
     console.log('logging out')
+   
     const response = await fetch('/api/allUserRoutes/logout', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -17,14 +18,24 @@ const logout = async () => {
   }
   
   const makepost = async () => {
-    console.log('making post')
+    // console.log('making post')
+    var title = document.querySelector('#title').value;
+    var content = document.querySelector('#content').value;
     const response = await fetch('/api/dashRoutes/makeBlog', {
       method: 'POST',
+      body: JSON.stringify({
+        title: title,
+        content: content
+             
+             
+  
+  
+            }),
       headers: { 'Content-Type': 'application/json' },
     });
   
     if (response.ok) {
-      console.log(data)
+      console.log(await response.json())
     } else {
       alert(response.statusText);
     }
@@ -35,5 +46,5 @@ const logout = async () => {
   document.querySelector('#makeComment').addEventListener('click', logMessage);
   document.querySelector('#post').addEventListener('click', makepost);
 document.querySelector('#logout').addEventListener('click', logout);
-document.querySelector('#makeComment').addEventListener('click', logMessage);
+
 

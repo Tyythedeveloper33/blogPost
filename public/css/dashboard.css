@@ -45,3 +45,20 @@ body {
 body h2 {
     margin-right: 2%;
 }
+
+
+.comments-container{
+    height: auto;
+    width:500px;
+    margin-left: 30%;
+}
+
+body .comments-container {
+    transform: perspective(1000px)  ;
+        transform-origin: top;
+        /* add depth with shadows*/
+        box-shadow: 0px 0px 15px rgba(0, 0, 0,0.3);
+        /* add padding and background color*/
+        padding: 15px;
+        background-color: #f8f8f8;
+}

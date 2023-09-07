@@ -1,45 +1,40 @@
-
-    <nav>
-        <a href="/homeroutes">Home</a>
-        <button class="no-button" id="post">logout</button>
-    </nav>
-
-
-    <h2>This is where you can comment on posts!!</h2>
+<nav>
+    <a href="/homeroutes">Home</a>
+    <button class="no-button" id="post">logout</button>
+</nav>
 
 
-    {{#each blogPost}}
-    <div class="forms-container">
-        <div class="blogpost-form">
-            <form>
+<h2>This is where you can comment on posts!!</h2>
+
+
+{{#each blogPost}}
+<div class="forms-container">
+    <div class="blogpost-form">
+        <form class="form-class">
             {{!-- <form action="/api/dashboard/comment" method="post"> --}}
-                <input type="hidden"  name="id" value="{{id}}">
-                <label for="title">Title: {{title}}</label><br><hr>
-                <label for="content">{{content}}</label>
+                <input type="hidden" name="id" id="post-id" value="{{id}}">
+                <label for="title" id="title" >Title: {{title}}</label><br>
+                <hr>
+                <label for="content" id="content">{{content}}</label>
                 <h3>Created on {{date_created}} by {{user.name}}</h3>
                 <hr>
                 <input type="text" id="comment-input" name="content" required><br><br>
-                <button type="button" data-postid="{{id}}" id="Comment">Comment</button>
+                <button type="submit" id="post"data-postid="{{id}}" id="Comment">Comment</button>
             </form>
-        </div>
     </div>
-    {{/each}}
+</div>
+{{/each}}
 
 
-    <!-- Uncomment the following code if needed -->
-     <div class="comments-container">
-      {{#unless blogPost.comments}}
-    <h2>Be the first to Comment!</h2>
-{{else}}
-    {{#each blogPost.comments as |comment|}}
-        <h2>{{comment.postid}}</h2>
-        <h2>{{comment.content}}</h2>
-    {{/each}}
-{{/unless}}
-   
+<!-- Uncomment the following code if needed -->
+<div class="comments-container">
+    {{#each blogPost.[0].comments as | comment | }}
+    <div class="comment">
+        <p> comment:{{comment.content}} </p>
+         <hr>
+        <!-- Render other comment properties as needed -->
+        {{/each}}
+    </div>
+</div>
 
-
-   <script src="./js/blog.js"></script>
-
-
-
+    <script src="./js/blog.js"></script>
