@@ -49,9 +49,12 @@ console.log(req.session.user_id)
   }
  }
 
-
+ async function viewPosthandler(req, res){
+  console.log("data received: ", req.body);
+ }
 
 
 router.post('/comment', commenthandler);
 router.post('/makeBlog', postformhandler);
+router.post('/post/:id', viewPosthandler);
   module.exports = router;

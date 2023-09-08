@@ -14,10 +14,10 @@ router.get('/', async (req,res) =>{
               model: User,
               attributes: ['name'],
             },
-            {
-              model: Comments,
-              attributes: ['content'],
-            },
+            // {
+            //   model: Comments,
+            //   attributes: ['content'],
+            // },
           ],
         });
     
