@@ -51,8 +51,15 @@ console.log(req.session.user_id)
 
  async function viewPosthandler(req, res){
   console.log("data received: ", req.body);
+  try {
+    console.log(req.session.user_id)
+    const blogPost = await BlogPost.findByPk(req.body.id)
+    console.log("Blog Post: ", blogPost);
+  }catch(err){
+    console.log(err)
+    res.status(500).json(err)
  }
-
+ }
 
 router.post('/comment', commenthandler);
 router.post('/makeBlog', postformhandler);
