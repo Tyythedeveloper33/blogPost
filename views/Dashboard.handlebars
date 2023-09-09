@@ -11,7 +11,7 @@
 
 {{#each blogPost}}
 <div class="forms-container">
-    <form class="blogpost-form">
+      <form class="blogpost-form post-form-${{id}}">
         <input type="hidden" name="id" id="post-id" value="{{id}}">
         <label for="title" id="title">Title: {{title}}</label><br>
         <hr>
