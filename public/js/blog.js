@@ -43,7 +43,7 @@ blogPostForms.forEach((form) => {
   const postId = event.target[1].getAttribute("name"); // Get the postId from the button's data attribute
  console.log(postId)
   try {
-    const response = await fetch(`/api/dashRoutes/post/${postId}`, {
+    const response = await fetch(`/api/dashRoutes/viewpost/${postId}`, {
       method: "POST", // Use 'POST' instead of 'Post' (uppercase)
       body: JSON.stringify({
         id: postId,

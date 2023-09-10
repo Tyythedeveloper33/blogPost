@@ -49,7 +49,7 @@ console.log(req.session.user_id)
   }
  }
 
- async function viewPosthandler(req, res) {
+ async function viewPostHandler(req, res) {
   console.log("data received: ", req.body);
   try {
     console.log("user_id:",req.session.user_id);
@@ -68,7 +68,7 @@ console.log(req.session.user_id)
     
     console.log("BlogPost: ", blogPost);
     
-    res.redirect(`../../../viewpost?id=${blogPost.id}`);
+    res.redirect(`/dashboard/viewpost/${blogPost.id}`);
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
@@ -76,9 +76,14 @@ console.log(req.session.user_id)
 }
 
 
+
+
+
+
+
 router.post('/comment', commenthandler);
 router.post('/makeBlog', postformhandler);
-router.post('/post/:id', viewPosthandler);
+router.post('/viewpost/:id', viewPostHandler);
 
   module.exports = router;
   
