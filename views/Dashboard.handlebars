@@ -8,18 +8,16 @@
 
 
     
-
 {{#each blogPost}}
 <div class="forms-container">
-      <form class="blogpost-form post-form-${{id}}">
+      <form class="blogpost-form post-form-${{id}}" action="post">
         <input type="hidden" name="id" id="post-id" value="{{id}}">
         <label for="title" id="title">Title: {{title}}</label><br>
         <hr>
         <label for="content" id="content">{{content}}</label>
         <h3>Created on {{date_created}} by {{user.name}}</h3>
         <hr>
-        <button type="submit" id="post" data-postid="{{id}}" >View Post</button>
-        
+        <button type="submit" id="post" name="{{id}}" >View Post</button>
     </form>
 </div>
 

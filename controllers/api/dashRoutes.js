@@ -55,6 +55,8 @@ console.log(req.session.user_id)
     console.log(req.session.user_id)
     const blogPost = await BlogPost.findByPk(req.body.id)
     console.log("Blog Post: ", blogPost);
+    res.redirect('../../../viewpost');
+         
   }catch(err){
     console.log(err)
     res.status(500).json(err)
@@ -64,4 +66,5 @@ console.log(req.session.user_id)
 router.post('/comment', commenthandler);
 router.post('/makeBlog', postformhandler);
 router.post('/post/:id', viewPosthandler);
+
   module.exports = router;

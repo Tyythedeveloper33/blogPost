@@ -36,34 +36,34 @@ blogPostForms.forEach((form) => {
  });
 
 
-async function viewPost(event) {
+ async function viewPost(event) {
   event.preventDefault();
-   console.log('bringing the post out')
+
   // Assuming you have postId defined somewhere.
-  const postId = event.target.getAttribute('input[name="id"]'); // Get the postId from the button's data attribute
-  console.log(postId)
+  const postId = event.target[1].getAttribute("name"); // Get the postId from the button's data attribute
+ console.log(postId)
   try {
     const response = await fetch(`/api/dashRoutes/post/${postId}`, {
-      method: 'POST', // Use 'POST' instead of 'Post' (uppercase)
+      method: "POST", // Use 'POST' instead of 'Post' (uppercase)
       body: JSON.stringify({
         id: postId,
       }),
       headers: {
-        'Content-Type': 'application/json',
+        "Content-Type": "application/json",
       },
     });
 
     if (response.ok) {
       // const responseData = await response.json();
-      console.log('post brought out');
-
+      console.log("post brought out");
+      console.log("post id: ", postId)
       // Do something with the responseData, e.g., display it on the page
     } else {
       alert(`Error: ${response.statusText}`);
-      // con
     }
   } catch (error) {
-    console.error('An error occurred:', error);
+    console.error("An error occurred:", error);
   }
 }
+
 // document.querySelector('.blogpost-form').addEventListener('submit', viewPost);
