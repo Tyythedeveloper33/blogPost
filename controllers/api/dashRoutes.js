@@ -49,19 +49,32 @@ console.log(req.session.user_id)
   }
  }
 
- async function viewPosthandler(req, res){
+ async function viewPosthandler(req, res) {
   console.log("data received: ", req.body);
   try {
-    console.log(req.session.user_id)
-    const blogPost = await BlogPost.findByPk(req.body.id)
-    console.log("Blog Post: ", blogPost);
-    res.redirect('../../../viewpost');
-         
-  }catch(err){
-    console.log(err)
-    res.status(500).json(err)
- }
- }
+    console.log("user_id:",req.session.user_id);
+    const blogPostData = await BlogPost.findByPk(req.body.id, {
+      include: [
+        {
+          model: User,
+          attributes: ['name'],
+        },
+        // Add any other models you want to include
+      ],
+    });
+
+    // Serialize data so the template can read it
+    const blogPost = blogPostData.get({ plain: true });
+    
+    console.log("BlogPost: ", blogPost);
+    
+    res.redirect(`../../../viewpost?id=${blogPost.id}`);
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
+}
+
 
 router.post('/comment', commenthandler);
 router.post('/makeBlog', postformhandler);
