@@ -39,11 +39,14 @@ console.log('by:',blogPost.user.name)
         createdat: blogPost.date_created,
         by: blogPost.user.name,
          });
+        
   } catch (err) {
     console.error(err);
     res.status(500).json(err);
   }
 }
+
+
 
 module.exports = viewPostHandler;
 
@@ -85,4 +88,5 @@ module.exports = viewPostHandler;
     //     console.log(blogPost)
     //     // console.log(comments)
     router.get('/', viewPostHandler);
+   
     module.exports =router;
