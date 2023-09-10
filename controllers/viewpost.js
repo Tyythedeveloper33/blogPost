@@ -10,7 +10,7 @@ async function viewPostHandler(req, res) {
     // Log the request URL for debugging
     console.log('Request URL:');
     // Retrieve the 'id' from the query parameter
-    const postId = req.query.id; // Assuming you're using query parameters
+    const postId = req.params.id; // Assuming you're using query parameters
 console.log('post id:', postId)
     // Fetch the corresponding blog post data from your data source
     const blogPost = await BlogPost.findByPk(postId, {
@@ -28,6 +28,7 @@ console.log('post id:', postId)
       return res.status(404).send('Blog post not found');
     }
 // console.logging to make sure i recieved data for my front end
+
 console.log('title:',blogPost.title)
 console.log('content:',blogPost.content)
 console.log('createdat:',blogPost.date_created)
@@ -38,6 +39,7 @@ console.log('by:',blogPost.user.name)
         content: blogPost.content,
         createdat: blogPost.date_created,
         by: blogPost.user.name,
+
          });
         
   } catch (err) {
@@ -48,7 +50,7 @@ console.log('by:',blogPost.user.name)
 
 
 
-module.exports = viewPostHandler;
+
 
     // res.render('post', {
     //       blogPost,
@@ -87,6 +89,7 @@ module.exports = viewPostHandler;
     //     // const comments = blogPost.comments.map((comment) => blogPost.get({ plain: true }));
     //     console.log(blogPost)
     //     // console.log(comments)
-    router.get('/', viewPostHandler);
-   
+    router.get('/:id', viewPostHandler);
+
+   module.exports = viewPostHandler;
     module.exports =router;
