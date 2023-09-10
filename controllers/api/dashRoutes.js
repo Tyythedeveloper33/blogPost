@@ -68,3 +68,5 @@ router.post('/makeBlog', postformhandler);
 router.post('/post/:id', viewPosthandler);
 
   module.exports = router;
+  
+

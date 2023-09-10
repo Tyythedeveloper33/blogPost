@@ -13,7 +13,7 @@ router.use('/api', apiRoutes);
 router.use('/login', loginRoutes);
 router.use('/signup', signupRoutes);
  router.use('/dashboard', dashRoutes);
- router.use('/post', postRoutes);
+ router.use('/viewpost', postRoutes);
 
 
 
