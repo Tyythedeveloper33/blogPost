@@ -1,12 +1,7 @@
 
 
 
-<nav>
-    <a href="/homeroutes">Home</a>
-    <button class="no-button" id="post">logout</button>
-</nav>
 
-<body>
     
 
 <h2>This is where you can comment on posts!!</h2>
@@ -16,7 +11,7 @@
 <div class="forms-container">
     {{!-- <div class="blogpost-form"> --}}
         <form class="blogpost-form">
-            <form action="/dashboard/viewpost/:id/comment" method="post">
+            {{!-- <form action="/dashboard/viewpost/:id/comment" method="post"> --}}
                 <input type="hidden" name="id" id="post-id" value="{{id}}">
                 <label for="title" id="title">Title: {{title}}</label><br>
                 <hr>
@@ -25,9 +20,10 @@
                 <hr>
                 <input type="text" id="comment-input" name="content" required><br><br>
                 <button type="submit" id="post" data-postid="{{id}}" id="Comment">Make comment</button>
-            </form>
-            </body>
-            <script src="../../js/comment.js"></script>
+                </form>
+                </div>
+            
+           <script src="/js/comment.js"></script>
       {{!-- {{/each}} --}}
             {{!-- {{#each comments as | comment | }}
             <div class="comment">
@@ -39,8 +35,8 @@
     {{!-- </div> --}}
 </div>
      
+ 
 
 
-<!-- Uncomment the following code if needed -->
 
 
