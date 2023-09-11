@@ -78,6 +78,7 @@ router.get('/', async (req,res) =>{
             content: blogPost.content,
             createdat: blogPost.date_created,
             by: blogPost.user.name,
+            //  style: form.css,
     
              });
             
