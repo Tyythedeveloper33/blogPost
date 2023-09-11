@@ -59,6 +59,10 @@ console.log(req.session.user_id)
           model: User,
           attributes: ['name'],
         },
+        {
+          model: Comments,
+          attributes: ['name'],
+        },
         // Add any other models you want to include
       ],
     });
@@ -81,7 +85,7 @@ console.log(req.session.user_id)
 
 
 
-router.post('/comment', commenthandler);
+router.post('/viewpost/:id/comment', commenthandler);
 router.post('/makeBlog', postformhandler);
 router.post('/viewpost/:id', viewPostHandler);
 

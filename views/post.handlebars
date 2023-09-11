@@ -1,3 +1,6 @@
+
+
+
 <nav>
     <a href="/homeroutes">Home</a>
     <button class="no-button" id="post">logout</button>
@@ -13,17 +16,18 @@
 <div class="forms-container">
     {{!-- <div class="blogpost-form"> --}}
         <form class="blogpost-form">
-            {{!-- <form action="/api/dashRoutes/post/:id" method="post"> --}}
+            <form action="/dashboard/viewpost/:id/comment" method="post">
                 <input type="hidden" name="id" id="post-id" value="{{id}}">
                 <label for="title" id="title">Title: {{title}}</label><br>
                 <hr>
                 <label for="content" id="content">{{content}}</label>
                 <h3>Created on {{createdat}} by {{by}}</h3>
                 <hr>
-                {{!-- <input type="text" id="comment-input" name="content" required><br><br> --}}
-                <button type="submit" id="post" data-postid="{{id}}" id="Comment">view post</button>
+                <input type="text" id="comment-input" name="content" required><br><br>
+                <button type="submit" id="post" data-postid="{{id}}" id="Comment">Make comment</button>
             </form>
             </body>
+            <script src="../../js/comment.js"></script>
       {{!-- {{/each}} --}}
             {{!-- {{#each comments as | comment | }}
             <div class="comment">
@@ -40,4 +44,3 @@
 <!-- Uncomment the following code if needed -->
 
 
-<script src="./js/blog.js"></script>

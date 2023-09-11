@@ -23,7 +23,7 @@ router.get('/', async (req,res) =>{
     
         // Serialize data so the template can read it
         const blogPost = blogpostData.map((blogPost) => blogPost.get({ plain: true }));
-        // const comments = blogPost.comments.map((comment) => blogPost.get({ plain: true }));
+        //  const comments = blogPost.comments.map((comments) => blogPost.get({ plain: true }));
         console.log(blogPost)
         // console.log(comments)
     res.render('Dashboard', {
@@ -59,6 +59,10 @@ router.get('/', async (req,res) =>{
                model: User,
                attributes: ['name'],
         },
+        //     {
+        //       //  model: Comment,
+        //       //  attributes: ['content'],
+        // },
        ],
         });
     // console.log('got the user:', blogPost.user.name)
@@ -67,7 +71,7 @@ router.get('/', async (req,res) =>{
           return res.status(404).send('Blog post not found');
         }
     // console.logging to make sure i recieved data for my front end
-    
+   
     console.log('title:',blogPost.title)
     console.log('content:',blogPost.content)
     console.log('createdat:',blogPost.date_created)
@@ -88,9 +92,13 @@ router.get('/', async (req,res) =>{
       }
     }
     
-
-
-
+    router.get('/viewpost/css', async (req,res) =>{
+    res.render('post', {
+      
+      
+      style: "form.css",
+    })
+  })
 router.get('/viewpost/:id',viewPostHandler)
 
 module.exports= router;
