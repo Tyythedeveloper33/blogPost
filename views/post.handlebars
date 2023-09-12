@@ -8,11 +8,11 @@
 
 
 {{!-- {{#each blogPost}} --}}
-<div class="forms-container" id="post-id" value="{{id}}">
+<div class="forms-container">
     {{!-- <div class="blogpost-form"> --}}
         <form class="blogpost-form">
             {{!-- <form action="/dashboard/viewpost/:id/comment" method="post"> --}}
-                <input type="hidden" name="id" >
+                <input type="hidden" name="id" id="post-id" value="{{id}}">
                 <label for="title" id="title">Title: {{title}}</label><br>
                 <hr>
                 <label for="content" id="content">{{content}}</label>

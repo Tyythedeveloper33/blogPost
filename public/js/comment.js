@@ -7,7 +7,7 @@ const makecomment = async (event) => {
   console.log('making comment')
 
   const content = document.querySelector('#comment-input').value.trim();
-  var postId = document.querySelector('#post-id').value;
+  var postId = document.getElementById("post-id").value;
   
    console.log("post id:",postId,"content:" ,content)
   const response = await fetch(`/api/dashRoutes/viewpost/${postId}/comment`, {
