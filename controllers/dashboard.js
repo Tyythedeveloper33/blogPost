@@ -71,19 +71,19 @@ router.get('/', async (req,res) =>{
           return res.status(404).send('Blog post not found');
         }
     // console.logging to make sure i recieved data for my front end
-   
+   console.log("id:", postId)
     console.log('title:',blogPost.title)
     console.log('content:',blogPost.content)
     console.log('createdat:',blogPost.date_created)
     console.log('by:',blogPost.user.name)
         // Render the 'post.handlebars' template with the retrieved data
         res.render('post', {
-            title: blogPost.title,
-            content: blogPost.content,
-            createdat: blogPost.date_created,
-            by: blogPost.user.name,
+             title: blogPost.title,
+             content: blogPost.content,
+             createdat: blogPost.date_created,
+             by: blogPost.user.name,
              style: "form.css",
-    
+             id: postId , 
              });
             
       } catch (err) {

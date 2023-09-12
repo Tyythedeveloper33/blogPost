@@ -1,10 +1,15 @@
+
+
 const makecomment = async (event) => {
+    /* Retrieve postId from the template's data context */;
+
  event.preventDefault()
   console.log('making comment')
 
   const content = document.querySelector('#comment-input').value.trim();
   var postId = document.querySelector('#post-id').value;
-   console.log("post id:",postId, content)
+  
+   console.log("post id:",postId,"content:" ,content)
   const response = await fetch(`/api/dashRoutes/viewpost/${postId}/comment`, {
     method: 'POST',
     body: JSON.stringify({
@@ -25,4 +30,4 @@ const makecomment = async (event) => {
   }
 };
 
-document.querySelector('#post').addEventListener('submit', makecomment);
+document.querySelector('.forms-container').addEventListener('submit', makecomment);
