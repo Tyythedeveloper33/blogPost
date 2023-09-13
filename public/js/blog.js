@@ -1,33 +1,18 @@
-// const makecomment = async (event) => {
-//  event.preventDefault()
-//   console.log('making comment')
+const logout = async () => {
+  console.log('logging out')
+ 
+  const response = await fetch('/api/allUserRoutes/logout', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+  });
 
-//   const content = document.querySelector('#comment-input').value.trim();
-//   var postId = document.querySelector('#post-id').value;
-//    console.log("post id:",postId, content)
-//   const response = await fetch('/api/dashRoutes/comment', {
-//     method: 'POST',
-//     body: JSON.stringify({
-//       id: postId,
-//       content: content
-           
-           
+  if (response.ok) {
+    document.location.replace('/login');
+  } else {
+    alert(response.statusText);
+  }
+};
 
-
-//           }),
-//     headers: { 'Content-Type': 'application/json' },
-//   });
-
-//       // body: JSON.stringify({ , lastname: lastName, email: userEmail, password: userPassword }),
-     
-//   if (response.ok) {
-//     //this is where the problem liesas i am not getting console.logged my data nor message
-//     console.log( await response.json())
-//     // location.replace('/dashboard')
-//   } else {
-//     alert(response.statusText);
-//   }
-// };
 
 
 const blogPostForms = document.querySelectorAll('[class*="blogpost-form"]');
@@ -67,3 +52,4 @@ blogPostForms.forEach((form) => {
 }
 
 // document.querySelector('.blogpost-form').addEventListener('submit', viewPost);
+document.querySelector('#logout').addEventListener('click', logout);
