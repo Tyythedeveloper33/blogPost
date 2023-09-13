@@ -14,10 +14,10 @@ router.get('/', async (req,res) =>{
               model: User,
               attributes: ['name'],
             },
-            // {
-            //   model: Comments,
-            //   attributes: ['content'],
-            // },
+           {
+              model: Comments,
+              attributes: ['id', 'content'],
+           },
           ],
         });
     
@@ -60,8 +60,8 @@ router.get('/', async (req,res) =>{
                attributes: ['name'],
         },
         //     {
-        //       //  model: Comment,
-        //       //  attributes: ['content'],
+        //        model: Comment,
+        //        attributes: ['content'],
         // },
        ],
         });
@@ -76,6 +76,7 @@ router.get('/', async (req,res) =>{
     console.log('content:',blogPost.content)
     console.log('createdat:',blogPost.date_created)
     console.log('by:',blogPost.user.name)
+    console.log('comments:',blogPost.comments)
         // Render the 'post.handlebars' template with the retrieved data
         res.render('post', {
              title: blogPost.title,

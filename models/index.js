@@ -2,11 +2,6 @@ const Comments = require('./comments');
 const BlogPost = require('./blogPost');
 const User = require('./users');
 
-
-
-
-
-
 Comments.belongsTo(User, {
   foreignKey: 'user_id',
  
@@ -32,7 +27,7 @@ User.hasMany(BlogPost, {
 
 
 Comments.belongsTo(BlogPost,{
-foreignKey:'blogpost_id'
+  foreignKey:'blogpost_id'
 });
  
 BlogPost.hasMany(Comments,{

@@ -24,20 +24,27 @@ console.log(req.session.user_id)
 
  async function commenthandler(req, res) {
   console.log("data received: ", req.body);
+  console.log("params data: ", req.params);
   try {
-    console.log(req.session.user_id)
-    const blogPost = await BlogPost.findByPk(req.body.id)
-    console.log("Blog Post: ", blogPost);
-   
+    console.log("Session data:", req.session.user_id)
+    // Create Comment Instance First
     const comment = await Comments.create({
       // ...req.body,
       content: req.body.content,
       user_id: req.session.user_id,
-      blogpost_id: blogPost.id,
+      blogpost_id: req.params.id,
       // content: req.session.comment,
      
     });
     console.log("Comment: ", comment);
+    // Update the Current BlogPost with the NEW Comment.id data
+    const blogPost = await BlogPost.update(req.body.id , {
+      where: {
+        id: req.params.id
+      }
+    })
+    console.log("Blog Post: ", blogPost);
+   
      res.json(comment)
 //     //  res.render('Dashboard', {
 //     comment: req.body.content  
@@ -61,7 +68,8 @@ console.log(req.session.user_id)
         },
         {
           model: Comments,
-          attributes: ['name'],
+          //ref: 'comments'
+          attributes: ['id', 'content'],
         },
         // Add any other models you want to include
       ],
