@@ -65,7 +65,7 @@ router.get('/', async (req,res) =>{
         // },
        ],
         });
-    // console.log('got the user:', blogPost.user.name)
+        
         // Check if the blogPost exists
         if (!blogPost) {
           return res.status(404).send('Blog post not found');
@@ -76,7 +76,8 @@ router.get('/', async (req,res) =>{
     console.log('content:',blogPost.content)
     console.log('createdat:',blogPost.date_created)
     console.log('by:',blogPost.user.name)
-    console.log('comments:',blogPost.comments)
+    // console.log('comments:', Comments )
+    
         // Render the 'post.handlebars' template with the retrieved data
         res.render('post', {
              title: blogPost.title,
