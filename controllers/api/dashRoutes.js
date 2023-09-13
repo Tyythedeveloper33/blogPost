@@ -46,10 +46,7 @@ console.log(req.session.user_id)
     console.log("Blog Post: ", blogPost);
    
      res.json(comment)
-//     //  res.render('Dashboard', {
-//     comment: req.body.content  
-     
-// });
+
     }catch(err){
       console.log(err)
       res.status(500).json(err)
@@ -68,7 +65,6 @@ console.log(req.session.user_id)
         },
         {
           model: Comments,
-          //ref: 'comments'
           attributes: ['id', 'content'],
         },
         // Add any other models you want to include
@@ -86,11 +82,6 @@ console.log(req.session.user_id)
     res.status(500).json(err);
   }
 }
-
-
-
-
-
 
 
 router.post('/viewpost/:id/comment', commenthandler);

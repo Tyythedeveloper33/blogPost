@@ -4,18 +4,6 @@ const { hasHook } = require('../../models/comments');
 // express.use(router.urlencoded({extended: false}))
  const { User } = require('../../models')
  
-
-// All of these routes are prefixed with '/api/signup'
-
-// router.get('/',(req,res) =>{
-//     res.render('signup');
-        
-    
-//     })
-    
-
-
-
 function logOutHandler(req, res) {
      if (req.session.logged_in) {
       req.session.destroy(() => {

@@ -25,10 +25,9 @@ router.get('/', async (req,res) =>{
         const blogPost = blogpostData.map((blogPost) => blogPost.get({ plain: true }));
         //  const comments = blogPost.comments.map((comments) => blogPost.get({ plain: true }));
         console.log(blogPost)
-        // console.log(comments)
+        
     res.render('Dashboard', {
           blogPost,
-          // comments,
           style: "dashboard.css",
          
     });
@@ -59,10 +58,6 @@ router.get('/', async (req,res) =>{
                model: User,
                attributes: ['name'],
         },
-        //     {
-        //        model: Comment,
-        //        attributes: ['content'],
-        // },
        ],
         });
         

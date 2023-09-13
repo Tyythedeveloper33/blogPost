@@ -19,7 +19,7 @@ const makecomment = async (event) => {
     headers: { 'Content-Type': 'application/json' },
   });
 
-      // body: JSON.stringify({ , lastname: lastName, email: userEmail, password: userPassword }),
+     
      
   if (response.ok) {
     //this is where the problem liesas i am not getting console.logged my data nor message
